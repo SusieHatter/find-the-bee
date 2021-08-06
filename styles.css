@@ -1,0 +1,107 @@
+:root {
+  --dark: #180022;
+  --dark-blue: #23395b;
+  --medium-blue: #40788e;
+  --light-blue: #8ea8c3;
+  --accent: #cbf7ed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Rock Salt";
+  background-color: var(--dark);
+}
+
+h1 {
+  color: var(--accent);
+  text-align: center;
+  font-size: 5.5vw;
+}
+
+.card-set {
+  width: 100%;
+  height: 70vw;
+  display: flex;
+}
+
+.card {
+  margin: 10px;
+  width: 30%;
+  height: 40%;
+  font-family: "Sacramento";
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px, 3px 18px 3px var(--dark);
+}
+
+.face-front {
+  background: linear-gradient(
+    30deg,
+    var(--dark),
+    var(--dark-blue),
+    var(--medium-blue)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face-back {
+  background-color: var(--light-blue);
+  transform: rotateY(180deg);
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+}
+
+.card-header {
+  position: relative;
+  padding: 30px, 30px, 40px;
+}
+
+.card-header:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 0 0 50% 0;
+  background: linear-gradient(
+    30deg,
+    var(--dark) 10%,
+    var(--dark-blue) 50%,
+    var(--medium-blue) 60%
+  );
+}
